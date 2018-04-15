@@ -18,10 +18,12 @@ export default {
   },
   methods: {
     submit() {
-      this.$emit('addComment', {
+      this.$store.dispatch('addComment', {
         author: this.author,
         comment: this.comment,
       });
+      this.author = '';
+      this.comment = '';
     },
   },
 };

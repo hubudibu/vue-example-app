@@ -10,8 +10,10 @@
 <script>
 export default {
   name: 'CommentList',
-  props: {
-    comments: Array,
+  computed: {
+    comments() {
+      return this.$store.state.comments;
+    },
   },
 };
 </script>

@@ -8,9 +8,13 @@
 <script>
 export default {
   name: 'CommentedArticle',
-  props: {
-    title: String,
-    article: String,
+  computed: {
+    title() {
+      return this.$store.state.title;
+    },
+    article() {
+      return this.$store.state.article;
+    },
   },
 };
 </script>
