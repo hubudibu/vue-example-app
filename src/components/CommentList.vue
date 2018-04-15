@@ -1,16 +1,17 @@
 <template>
-  <article>
-    <h1>{{ title }}</h1>
-    <p>{{ article }}</p>
-  </article>
+  <ul>
+    <li v-for="comment in comments" :key="comment.id">
+      <h3>{{ comment.author }}</h3>
+      <p>{{ comment.comment }}</p>
+    </li>
+  </ul>
 </template>
 
 <script>
 export default {
-  name: 'CommentedArticle',
+  name: 'CommentList',
   props: {
-    title: String,
-    article: String,
+    comments: Array,
   },
 };
 </script>
