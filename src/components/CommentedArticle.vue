@@ -16,6 +16,9 @@ export default {
       return this.$store.state.article;
     },
   },
+  created() {
+    this.$store.dispatch('getArticle');
+  },
 };
 </script>
 

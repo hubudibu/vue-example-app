@@ -24,10 +24,24 @@ const store = new Vuex.Store({
     addComment(state, comment) {
       state.comments.unshift(comment);
     },
+    addArticle(state, article) {
+      state.title = article.title;
+      state.article = article.article;
+    },
   },
   actions: {
     addComment(context, comment) {
       context.commit('addComment', comment);
+    },
+    getArticle(context) {
+      fetch('https://newsapi.org/v2/everything?q=javascript&apiKey=e82d6427ef8949058f4ef4d050daa662')
+        .then(response => response.json())
+        .then((articles) => {
+          context.commit('addArticle', {
+            title: articles.articles[0].title,
+            article: articles.articles[0].description,
+          });
+        });
     },
   },
 });
